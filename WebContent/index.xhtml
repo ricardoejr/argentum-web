@@ -18,15 +18,15 @@
 						<f:convertDateTime pattern="dd/MM/yyyy" />
 					</h:outputText>
 				</p:column>
-				<p:column sortBy="#{negocio.preco}" headerText="Preço">
+				<p:column sortBy="#{negocio.preco}" headerText="Preço"  style="text-align:right">
 					<h:outputText value="#{negocio.preco}" >
 						<f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
 					</h:outputText>
 				</p:column>
-				<p:column sortBy="#{negocio.quantidade}" headerText="Quantidade">
+				<p:column sortBy="#{negocio.quantidade}" headerText="Quantidade"  style="text-align:right">
 					<h:outputText value="#{negocio.quantidade}" />
 				</p:column>
-				<p:column sortBy="#{negocio.volume}" headerText="Volume">
+				<p:column sortBy="#{negocio.volume}" headerText="Volume"  style="text-align:right">
 					<h:outputText value="#{negocio.volume}">
 						<f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
 					</h:outputText>
