@@ -19,7 +19,9 @@
 					</h:outputText>
 				</p:column>
 				<p:column sortBy="#{negocio.preco}" headerText="Preço">
-					<h:outputText value="#{negocio.preco}" />
+					<h:outputText value="#{negocio.preco}" >
+						<f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
+					</h:outputText>
 				</p:column>
 				<p:column sortBy="#{negocio.quantidade}" headerText="Quantidade">
 					<h:outputText value="#{negocio.quantidade}" />
