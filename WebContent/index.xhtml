@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Insert title here</title>
-</head>
-<body>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Insert title here</title>
+</h:head>
+<h:body>
 	<h:form>
-		<h:inputText />
-		<h:commandButton value="ok" />
+		<p:panel header="Negociações" footer="Argentum Web">
+			<p:dataTable var="negocio" value="#{argentumBean.negociacoes}"
+				paginatorPosition="top" paginator="true" rows="15">
+				<p:column sortBy="#{negocio.data}" headerText="Data">
+					<h:outputText value="#{negocio.data.time}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</p:column>
+				<p:column sortBy="#{negocio.preco}" headerText="Preço">
+					<h:outputText value="#{negocio.preco}" />
+				</p:column>
+				<p:column sortBy="#{negocio.quantidade}" headerText="Quantidade">
+					<h:outputText value="#{negocio.quantidade}" />
+				</p:column>
+				<p:column sortBy="#{negocio.volume}" headerText="Volume">
+					<h:outputText value="#{negocio.volume}">
+						<f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
+					</h:outputText>
+				</p:column>
+			</p:dataTable>
+		</p:panel>
 	</h:form>
-</body>
+</h:body>
 </html>
