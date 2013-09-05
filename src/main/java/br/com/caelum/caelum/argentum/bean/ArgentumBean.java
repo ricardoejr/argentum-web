@@ -25,6 +25,8 @@ public class ArgentumBean {
 	private List<Negociacao> negociacoes;
 	private ChartModel modeloGrafico;
 	private String titulo;
+	private String nomeIndicador;
+	private String nomeMedia;
 
 	public void preparaDados() {
 		this.negociacoes = new ClienteWebService().getNegociacoes();
@@ -67,6 +69,22 @@ public class ArgentumBean {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
+	}
+
+	public String getNomeIndicador() {
+		return nomeIndicador;
+	}
+
+	public void setNomeIndicador(String nomeIndicador) {
+		this.nomeIndicador = nomeIndicador;
+	}
+
+	public String getNomeMedia() {
+		return nomeMedia;
+	}
+
+	public void setNomeMedia(String nomeMedia) {
+		this.nomeMedia = nomeMedia;
 	}
 
 }
