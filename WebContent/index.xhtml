@@ -9,8 +9,23 @@
 	<title>Insert title here</title>
 </h:head>
 <h:body>
-	<h:form>
-		<p:panel header="Negociações" footer="Argentum Web">
+	<h:form id="dadosTitulo">
+		<p:panel header="Titulo">
+			<p:growl />
+			<h:outputLabel for="titulo" value="Título" />
+			<p:inputText id="titulo" value="#{argentumBean.titulo}"
+				required="true">
+				<f:validateLength minimum="3" />
+			</p:inputText>
+			
+			<p:commandButton ajax="false" actionListener="#{argentumBean.preparaDados}" value="Gerar gráfico" />
+		</p:panel>
+	</h:form>
+	<h:form id="dadosGrafico">
+		<p:panel header="Negociações" footer="Argentum Web"
+			rendered="#{argentumBean.negociacoes != null}">
+			<p:lineChart value="#{argentumBean.modeloGrafico}" legendPosition="e"
+				title="#{argentumBean.titulo}" />
 			<p:dataTable var="negocio" value="#{argentumBean.negociacoes}"
 				paginatorPosition="top" paginator="true" rows="15">
 				<p:column sortBy="#{negocio.data}" headerText="Data">
@@ -18,15 +33,18 @@
 						<f:convertDateTime pattern="dd/MM/yyyy" />
 					</h:outputText>
 				</p:column>
-				<p:column sortBy="#{negocio.preco}" headerText="Preço"  style="text-align:right">
-					<h:outputText value="#{negocio.preco}" >
+				<p:column sortBy="#{negocio.preco}" headerText="Preço"
+					style="text-align:right">
+					<h:outputText value="#{negocio.preco}">
 						<f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
 					</h:outputText>
 				</p:column>
-				<p:column sortBy="#{negocio.quantidade}" headerText="Quantidade"  style="text-align:right">
+				<p:column sortBy="#{negocio.quantidade}" headerText="Quantidade"
+					style="text-align:right">
 					<h:outputText value="#{negocio.quantidade}" />
 				</p:column>
-				<p:column sortBy="#{negocio.volume}" headerText="Volume"  style="text-align:right">
+				<p:column sortBy="#{negocio.volume}" headerText="Volume"
+					style="text-align:right">
 					<h:outputText value="#{negocio.volume}">
 						<f:convertNumber minFractionDigits="2" maxFractionDigits="2" />
 					</h:outputText>
