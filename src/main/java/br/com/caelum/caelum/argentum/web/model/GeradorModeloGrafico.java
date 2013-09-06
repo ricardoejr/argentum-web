@@ -4,8 +4,8 @@ import org.primefaces.model.chart.CartesianChartModel;
 import org.primefaces.model.chart.ChartModel;
 import org.primefaces.model.chart.LineChartSeries;
 
+import bb.com.caelum.argentum.indicadores.Indicador;
 import br.com.caelum.argentum.SerieTemporal;
-import br.com.caelum.indicadores.Indicador;
 
 public class GeradorModeloGrafico {
 

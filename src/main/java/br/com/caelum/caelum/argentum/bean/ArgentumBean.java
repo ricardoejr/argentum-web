@@ -7,16 +7,17 @@ import javax.faces.bean.SessionScoped;
 
 import org.primefaces.model.chart.ChartModel;
 
+import bb.com.caelum.argentum.indicadores.IndicadorAbertura;
+import bb.com.caelum.argentum.indicadores.IndicadorFactory;
+import bb.com.caelum.argentum.indicadores.IndicadorFechamento;
+import bb.com.caelum.argentum.indicadores.MediaMovelPonderada;
+import bb.com.caelum.argentum.indicadores.MediaMovelSimples;
 import br.com.caelum.argentum.Candle;
 import br.com.caelum.argentum.CandleFactory;
 import br.com.caelum.argentum.Negociacao;
 import br.com.caelum.argentum.SerieTemporal;
 import br.com.caelum.argentum.ws.ClienteWebService;
 import br.com.caelum.caelum.argentum.web.model.GeradorModeloGrafico;
-import br.com.caelum.indicadores.IndicadorAbertura;
-import br.com.caelum.indicadores.IndicadorFechamento;
-import br.com.caelum.indicadores.MediaMovelPonderada;
-import br.com.caelum.indicadores.MediaMovelSimples;
 
 @ManagedBean
 @SessionScoped
@@ -34,22 +35,11 @@ public class ArgentumBean {
 				.constroiCandles(this.negociacoes);
 		SerieTemporal serie = new SerieTemporal(candles);
 		GeradorModeloGrafico gerador = new GeradorModeloGrafico(serie, 2,
-				serie.getTotal() - 2);
+				serie.getTotal() - 1);
 
-		gerador.plotaIndicador(new MediaMovelSimples(new IndicadorFechamento(),
-				3));
-
-		gerador.plotaIndicador(new MediaMovelPonderada(
-				new IndicadorFechamento(), 3));
-
-		gerador.plotaIndicador(new MediaMovelSimples(new IndicadorAbertura(), 3));
-
-		gerador.plotaIndicador(new MediaMovelPonderada(new IndicadorAbertura(),
-				3));
-
-		gerador.plotaIndicador(new IndicadorAbertura());
-
-		gerador.plotaIndicador(new IndicadorFechamento());
+		IndicadorFactory indicadorFactory = new IndicadorFactory(getNomeIndicador(), getNomeMedia());
+		
+		gerador.plotaIndicador(indicadorFactory.getIndicador());
 
 		this.modeloGrafico = gerador.getModeloGrafico();
 
