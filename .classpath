@@ -15,5 +15,13 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/f22-argentum"/>
+	<classpathentry kind="lib" path="lib-teste/commons-exec-1.1.jar"/>
+	<classpathentry kind="lib" path="lib-teste/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib-teste/guava-14.0.jar"/>
+	<classpathentry kind="lib" path="lib-teste/httpclient-4.2.1.jar"/>
+	<classpathentry kind="lib" path="lib-teste/httpcore-4.2.1.jar"/>
+	<classpathentry kind="lib" path="lib-teste/json-20080701.jar"/>
+	<classpathentry kind="lib" path="lib-teste/selenium-java-2.31.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
