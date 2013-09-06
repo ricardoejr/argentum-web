@@ -7,11 +7,7 @@ import javax.faces.bean.SessionScoped;
 
 import org.primefaces.model.chart.ChartModel;
 
-import bb.com.caelum.argentum.indicadores.IndicadorAbertura;
 import bb.com.caelum.argentum.indicadores.IndicadorFactory;
-import bb.com.caelum.argentum.indicadores.IndicadorFechamento;
-import bb.com.caelum.argentum.indicadores.MediaMovelPonderada;
-import bb.com.caelum.argentum.indicadores.MediaMovelSimples;
 import br.com.caelum.argentum.Candle;
 import br.com.caelum.argentum.CandleFactory;
 import br.com.caelum.argentum.Negociacao;
